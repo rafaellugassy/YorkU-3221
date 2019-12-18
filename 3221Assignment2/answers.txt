@@ -1,0 +1,23 @@
+1)
+Start routine, found on the man page "pthread_create" and "pthreads(7)"
+
+2)
+Mutexes - mutual exclusion lock.  Prevents the access to data inside the lock to be accessed by more than one thread, as this may cause unexpected errors. 
+
+Joins - waits for the thread to terminate to continue in the main thread.
+
+Condition Variables - allows conditions to be met before a thread can continue its actions.
+man page "pthreads(7)"
+
+3)
+a thread may be awoken from it's waiting state without a thread signalling the condition variable.  on the man page "pthread_cond_wait"
+
+4)
+The thread that will execute first would be the one is based on its scheduling policy, they race, and the first thread will be the one to execute. man "phread_cond_signal"
+
+5)
+A deadlock will occur (no threads will be able to continue through the mutex)
+man page "pthread_mutex_lock" and "pthread_cond_wait"
+
+6)
+A detatched thread is a thread that doesn't have to be joined, and will imediately will release its resources as it terminates. on the man page "pthread_detach"

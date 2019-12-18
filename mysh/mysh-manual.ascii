@@ -1,0 +1,93 @@
+.TH COMMAND 1
+.SH NAME
+COMMAND \- executes a command
+.SH SYNOPSIS
+\fR \fICOMMAND\fR 
+\fR \fICOMMAND\fR  & \fR \fICOMMAND\fR 
+\fR \fICOMMAND\fR  ; \fR \fICOMMAND\fR 
+\fR \fICOMMAND\fR  | \fR \fICOMMAND\fR 
+\fR \fICOMMAND\fR || \fR \fICOMMAND\fR 
+\fR \fICOMMAND\fR && \fR \fICOMMAND\fR 
+\fR \fICOMMAND\fR  >   
+.IR file..
+\fR \fICOMMAND\fR  <   
+.IR file..
+.SH DESCRIPTION
+.B COMMAND
+executes a given command.
+
+.TH & 1
+.SH NAME
+& \- Asynchronous execution
+.SH SYNOPSIS
+.B 
+\fR\fICOMMAND\fR & \fR\fICOMMAND\fI\fR
+.SH DESCRIPTION
+.B &
+executes two commands at the same time in different processes.  It will create a child process to execute
+the command to the left, and the parent process will execute the command to the right, and then will then wait for both processes to be finished.
+
+.TH ; 1
+.SH NAME
+; \- Synchronous execution
+.SH SYNOPSIS
+.B 
+\fR\fICOMMAND\fR ; \fR\fICOMMAND\fI\fR
+.SH DESCRIPTION
+.B ;
+executes two commands in order.  It will execute the first command, then the second command.
+
+.TH | 1
+.SH NAME
+| \- Pipe
+.SH SYNOPSIS
+.B 
+\fR\fICOMMAND\fR | \fR\fICOMMAND\fI\fR
+.SH DESCRIPTION
+.B |
+executes the first command, then with the output of the first command as the input, will execute the second command.
+
+.TH || 1
+.SH NAME
+|| \- Or
+.SH SYNOPSIS
+.B 
+\fR\fICOMMAND\fR || \fR\fICOMMAND\fR
+.SH DESCRIPTION
+.B ||
+Will execute the command to the left. If it failed, it will also execute the command to the right.
+
+.TH && 1
+.SH NAME
+&& \- And
+.SH SYNOPSIS
+.B 
+\fR\fICOMMAND\fR && \fR\fICOMMAND\fR
+.SH DESCRIPTION
+.B &&
+Will execute the command to the left. If it is successful, it will also execute the command to the right.
+
+
+
+.TH > 1
+.SH NAME
+> \- Redirect output
+.SH SYNOPSIS
+.B 
+\fR\fICOMMAND\fR > 
+.IR file ..
+.SH DESCRIPTION
+.B >
+executes a command, and the output of it will be redirected to the file.  If the file does not exist, it will create a file with the given name, by using the touch command.
+
+.TH < 1
+.SH NAME
+< \- Redirect input
+.SH SYNOPSIS
+.B 
+\fR\fICOMMAND\fR < 
+.IR file ..
+.SH DESCRIPTION
+.B <
+reads the file, and will set the input of the command to be that of the file.  If the file does not exist, an error will be displayed.
+
